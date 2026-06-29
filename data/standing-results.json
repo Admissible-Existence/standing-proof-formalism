@@ -1,0 +1,12 @@
+{
+  "schema": "admissible_existence.standing.results.v1",
+  "repo": "standing-proof-formalism",
+  "results": [
+    "ALLOW",
+    "DENY",
+    "FAIL_CLOSED",
+    "INCOMPLETE"
+  ],
+  "status": "results_ready",
+  "authority": false
+}
