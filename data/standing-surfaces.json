@@ -1,0 +1,17 @@
+{
+  "schema": "admissible_existence.standing.surfaces.v1",
+  "repo": "standing-proof-formalism",
+  "surfaces": [
+    "actor",
+    "target",
+    "scope",
+    "policy",
+    "delegation",
+    "evidence",
+    "context",
+    "validity_window",
+    "recoverability"
+  ],
+  "status": "surfaces_ready",
+  "authority": false
+}
