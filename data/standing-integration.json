@@ -1,0 +1,14 @@
+{
+  "schema": "admissible_existence.standing.integration.v1",
+  "repo": "standing-proof-formalism",
+  "links": [
+    "AE",
+    "BC",
+    "CHF",
+    "DC",
+    "DaCo",
+    "StegVerse"
+  ],
+  "status": "integration_ready",
+  "authority": false
+}
