@@ -1,0 +1,40 @@
+schema: admissible_existence.standing.proof_candidates.v1
+repository: Admissible-Existence/standing-proof-formalism
+authority_effect: false
+candidates:
+  - id: SPF-PC-001
+    principle: SPF-P-001
+    claim: Prior-valid evidence cannot produce ALLOW after the validity window or current context is invalid.
+    maturity: executable_candidate
+    required_evidence:
+      - data/standing-cases.json
+      - tools/check_standing_cases.py
+    falsification: Any case with invalid validity_window or context evaluates ALLOW.
+  - id: SPF-PC-002
+    principle: SPF-P-002
+    claim: ALLOW requires all nine standing surfaces to be explicitly VALID.
+    maturity: executable_candidate
+    required_evidence:
+      - data/standing-surfaces.json
+      - data/standing-cases.json
+      - tools/check_standing_cases.py
+    falsification: ALLOW occurs with any missing or non-VALID required surface.
+  - id: SPF-PC-003
+    principle: SPF-P-003
+    claim: An explicitly INVALID standing surface yields DENY and a missing standing surface yields INCOMPLETE; neither may silently produce ALLOW.
+    maturity: executable_candidate
+    required_evidence:
+      - data/standing-results.json
+      - data/standing-cases.json
+      - tools/check_standing_cases.py
+    falsification: Missing or invalid standing evidence produces ALLOW.
+  - id: SPF-PC-004
+    principle: SPF-P-004
+    claim: Every compact data contract and completeness receipt preserves authority=false and does not claim proof acceptance or final cross-repository validity.
+    maturity: executable_candidate
+    required_evidence:
+      - data/standing-surfaces.json
+      - data/standing-results.json
+      - data/standing-integration.json
+      - tools/validate_principle_completeness.py
+    falsification: Any validated repository output sets authority or execution/publication/proof acceptance true.
