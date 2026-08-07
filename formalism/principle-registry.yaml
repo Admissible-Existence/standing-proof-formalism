@@ -1,0 +1,43 @@
+schema: admissible_existence.standing.principle_registry.v1
+repository: Admissible-Existence/standing-proof-formalism
+formalism: Standing Proof Formalism
+authority_effect: false
+principles:
+  - id: SPF-P-001
+    name: Commit-time standing
+    claim: Standing must be reconstructed at the consequence boundary and cannot be inherited from prior review or prior validity.
+    source:
+      - README.md
+      - docs/STANDING_PROOF_STATUS.md
+    falsifiers:
+      - prior approval is accepted without current validity-window evaluation
+      - stale context is treated as current
+      - a candidate record is treated as a standing proof
+  - id: SPF-P-002
+    name: Complete standing surface
+    claim: Actor, target, scope, policy, delegation, evidence, context, validity window, and recoverability must all be evaluable before ALLOW can be produced.
+    source:
+      - data/standing-surfaces.json
+      - tools/check_standing_surfaces.py
+    falsifiers:
+      - ALLOW is produced with a missing standing surface
+      - an unknown surface state is silently treated as valid
+  - id: SPF-P-003
+    name: Invalid standing denies transition posture
+    claim: Any explicitly invalid standing surface prevents ALLOW; missing evidence must not silently preserve standing.
+    source:
+      - data/standing-results.json
+      - README.md
+    falsifiers:
+      - ALLOW is produced while any required standing surface is invalid
+      - missing evidence is interpreted as positive standing
+  - id: SPF-P-004
+    name: Standing status does not create authority
+    claim: A standing result is status-record evidence only and does not grant execution, publication, proof-acceptance, or cross-repository authority.
+    source:
+      - README.md
+      - data/standing-integration.json
+      - docs/STANDING_PROOF_STATUS.md
+    falsifiers:
+      - repository output directly authorizes execution
+      - local standing status is asserted as final cross-repository validity
