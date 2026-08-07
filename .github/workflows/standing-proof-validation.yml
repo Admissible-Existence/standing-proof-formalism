@@ -1,0 +1,55 @@
+name: Standing Proof Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - 'data/**'
+      - 'docs/**'
+      - 'formalism/**'
+      - 'tools/**'
+      - '.github/workflows/standing-proof-validation.yml'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate compact standing contracts
+        run: |
+          python tools/check_standing_surfaces.py
+          python tools/check_standing_results.py
+          python tools/check_standing_integration.py
+          python tools/check_standing_cases.py
+
+      - name: Validate principle completeness
+        run: |
+          python -m py_compile tools/check_standing_surfaces.py tools/check_standing_results.py tools/check_standing_integration.py tools/check_standing_cases.py tools/validate_principle_completeness.py
+          python tools/validate_principle_completeness.py
+          python -m json.tool reports/standing-proof-principle-completeness-validation.json >/dev/null
+
+      - name: Persist validation receipt
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "admissible-existence-standing-proof-worker"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/standing-proof-principle-completeness-validation.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record standing proof completeness receipt"
+            git push
+          fi
+
+      - name: Upload validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: standing-proof-validation-evidence
+          path: reports/standing-proof-principle-completeness-validation.json
+          if-no-files-found: error
