@@ -1,0 +1,66 @@
+{
+  "claims_final_cross_repository_validity": false,
+  "compact_authority": {
+    "data/standing-cases.json": false,
+    "data/standing-integration.json": false,
+    "data/standing-results.json": false,
+    "data/standing-surfaces.json": false
+  },
+  "execution_authorized": false,
+  "expected_principle_count": 4,
+  "findings": [],
+  "goal_id": "STANDING-PROOF-PRINCIPLE-COMPLETENESS-001",
+  "input_sha256": {
+    "README.md": "2b9e15c28e694bd8290a58af103f85fd11d3d760777f66c5386ee24f4c03a1a6",
+    "data/standing-cases.json": "4b3083be101ac324c32dfb9f0e56b8a480c4d2bb5b7bcb8fe2b1091ee8a9c6ee",
+    "data/standing-integration.json": "021381bce48b5aac2b67d1e25514dc891bd44fac87fc1f7e44bf6c2602129237",
+    "data/standing-results.json": "c27238ab2316893efc53bec6774e0c7f558979d920c6e0e8e77012c712ed51aa",
+    "data/standing-surfaces.json": "eb99efd464b08087454693411cc78795d6b26b74de1a5a7ccf42bfd1c120f9dc",
+    "docs/FALSIFICATION_AND_LIMITS.md": "dff0267ff3dd46ea3e52d3c86ad7d4c9826387c1ca1c64e775ea598e7f1cd8de",
+    "docs/MATHEMATICAL_NOTATION.md": "d64217fb01743c5a3351d49a81085bcc6d9dcb0f628a2a5dab78e3c94280e59d",
+    "docs/STANDING_PROOF_FORMALISM_MIRROR_HANDOFF.md": "623eebfa23b3a1198a3ce04b5d139552a06246eb76663e2f6a56f1991b1dcbec",
+    "docs/STANDING_PROOF_MIRROR_HANDOFF.md": "877930e3e403506fd26134c74148f5bdbd0de6378d7dacd1d55feaca180484fd",
+    "docs/WHOLE_REPO_THEORY_MAP.md": "483943138fbe9cef974e954e0c248d287689c25c3e2f0ac4a87a77472de087a5",
+    "formalism/dependency-graph.yaml": "4e73fa803b507aa3e3ae93e0d1dd45b54ae51f780cc2af1fa255d4e9ec70d44b",
+    "formalism/principle-registry.yaml": "e82d5ff0e7d36cdcefdd4af181da4caf68e0990deb1fbada98247d97ae54307d",
+    "formalism/proof-candidates.yaml": "50a54f1dbf606f8d61d3ff4b667f30933fe5ab4853ab236cbd3e9b6c3d59ef6b",
+    "tools/check_standing_cases.py": "a096bc6926f51fad7de788236871deb7d2eae3c6eb8cd7072272ff5228c78616",
+    "tools/check_standing_integration.py": "b71431e672c98202d069ae6407272ddf9cd6538dd38deb1c59984ada75075110",
+    "tools/check_standing_results.py": "4d7db40543451597c6c1ed364b5ef0dab80fd71cfb6d4dcda8f856829d49da6d",
+    "tools/check_standing_surfaces.py": "34f9c9f46782cdab9de178088a315998634b4161c690f0da50f0f00db21f4498"
+  },
+  "principle_count": 4,
+  "prior_review_inherits_standing": false,
+  "proofs_accepted": false,
+  "publication_authorized": false,
+  "repository": "Admissible-Existence/standing-proof-formalism",
+  "schema_version": "admissible_existence.standing.principle_completeness_receipt.v1",
+  "standing_case_count": 8,
+  "subchecks": [
+    {
+      "command": "tools/check_standing_surfaces.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "valid: standing surfaces"
+    },
+    {
+      "command": "tools/check_standing_results.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "valid: standing results"
+    },
+    {
+      "command": "tools/check_standing_integration.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "valid: standing integration"
+    },
+    {
+      "command": "tools/check_standing_cases.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"valid\": true,\n  \"case_count\": 8,\n  \"errors\": []\n}"
+    }
+  ],
+  "valid": true
+}
