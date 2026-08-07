@@ -1,0 +1,60 @@
+schema: admissible_existence.standing.dependency_graph.v1
+repository: Admissible-Existence/standing-proof-formalism
+authority_effect: false
+nodes:
+  - id: standing_thesis
+    path: README.md
+  - id: surfaces
+    path: data/standing-surfaces.json
+  - id: results
+    path: data/standing-results.json
+  - id: integration
+    path: data/standing-integration.json
+  - id: standing_cases
+    path: data/standing-cases.json
+  - id: surface_checker
+    path: tools/check_standing_surfaces.py
+  - id: result_checker
+    path: tools/check_standing_results.py
+  - id: integration_checker
+    path: tools/check_standing_integration.py
+  - id: case_checker
+    path: tools/check_standing_cases.py
+  - id: completeness_validator
+    path: tools/validate_principle_completeness.py
+edges:
+  - from: standing_thesis
+    to: surfaces
+    relation: defines_required_surface_meaning
+  - from: standing_thesis
+    to: results
+    relation: defines_result_boundary
+  - from: surfaces
+    to: standing_cases
+    relation: constrains_case_inputs
+  - from: results
+    to: standing_cases
+    relation: constrains_expected_results
+  - from: integration
+    to: integration_checker
+    relation: validated_by
+  - from: standing_cases
+    to: case_checker
+    relation: evaluated_by
+  - from: surface_checker
+    to: completeness_validator
+    relation: required_subcheck
+  - from: result_checker
+    to: completeness_validator
+    relation: required_subcheck
+  - from: integration_checker
+    to: completeness_validator
+    relation: required_subcheck
+  - from: case_checker
+    to: completeness_validator
+    relation: required_subcheck
+boundaries:
+  - prior_review_does_not_create_current_standing
+  - standing_status_does_not_create_execution_authority
+  - local_validation_does_not_create_cross_repository_validity
+  - missing_evidence_does_not_preserve_allow
