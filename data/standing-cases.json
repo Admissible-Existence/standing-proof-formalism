@@ -1,0 +1,48 @@
+{
+  "schema": "admissible_existence.standing.cases.v1",
+  "repo": "standing-proof-formalism",
+  "authority": false,
+  "state_values": ["VALID", "INVALID", "UNKNOWN"],
+  "cases": [
+    {
+      "id": "SPF-CASE-ALLOW-CURRENT",
+      "surfaces": {"actor":"VALID","target":"VALID","scope":"VALID","policy":"VALID","delegation":"VALID","evidence":"VALID","context":"VALID","validity_window":"VALID","recoverability":"VALID"},
+      "expected": "ALLOW"
+    },
+    {
+      "id": "SPF-CASE-DENY-STALE-WINDOW",
+      "surfaces": {"actor":"VALID","target":"VALID","scope":"VALID","policy":"VALID","delegation":"VALID","evidence":"VALID","context":"VALID","validity_window":"INVALID","recoverability":"VALID"},
+      "expected": "DENY"
+    },
+    {
+      "id": "SPF-CASE-DENY-STALE-CONTEXT",
+      "surfaces": {"actor":"VALID","target":"VALID","scope":"VALID","policy":"VALID","delegation":"VALID","evidence":"VALID","context":"INVALID","validity_window":"VALID","recoverability":"VALID"},
+      "expected": "DENY"
+    },
+    {
+      "id": "SPF-CASE-DENY-DELEGATION",
+      "surfaces": {"actor":"VALID","target":"VALID","scope":"VALID","policy":"VALID","delegation":"INVALID","evidence":"VALID","context":"VALID","validity_window":"VALID","recoverability":"VALID"},
+      "expected": "DENY"
+    },
+    {
+      "id": "SPF-CASE-DENY-EVIDENCE",
+      "surfaces": {"actor":"VALID","target":"VALID","scope":"VALID","policy":"VALID","delegation":"VALID","evidence":"INVALID","context":"VALID","validity_window":"VALID","recoverability":"VALID"},
+      "expected": "DENY"
+    },
+    {
+      "id": "SPF-CASE-INCOMPLETE-MISSING-EVIDENCE",
+      "surfaces": {"actor":"VALID","target":"VALID","scope":"VALID","policy":"VALID","delegation":"VALID","evidence":"UNKNOWN","context":"VALID","validity_window":"VALID","recoverability":"VALID"},
+      "expected": "INCOMPLETE"
+    },
+    {
+      "id": "SPF-CASE-INCOMPLETE-UNKNOWN-ACTOR",
+      "surfaces": {"actor":"UNKNOWN","target":"VALID","scope":"VALID","policy":"VALID","delegation":"VALID","evidence":"VALID","context":"VALID","validity_window":"VALID","recoverability":"VALID"},
+      "expected": "INCOMPLETE"
+    },
+    {
+      "id": "SPF-CASE-DENY-RECOVERABILITY",
+      "surfaces": {"actor":"VALID","target":"VALID","scope":"VALID","policy":"VALID","delegation":"VALID","evidence":"VALID","context":"VALID","validity_window":"VALID","recoverability":"INVALID"},
+      "expected": "DENY"
+    }
+  ]
+}
