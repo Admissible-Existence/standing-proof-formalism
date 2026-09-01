@@ -169,3 +169,8 @@ AID must preserve the canonical distinctions:
 `ALLOW standing status != execution permission`
 
 AID does not issue standing, and an AI Entity's discovery, learning, capability realization, or self-description does not bypass consequence-time standing requirements.
+
+
+## SV-011 consumer integration — 2026-09-01
+
+`SV-011/entity` is admitted only as a future consumer of current-standing reconstruction semantics through `docs/SV_011_CONSUMER_CONTRACT.md`. This creates no standing and does not reopen the completed standing-proof source lane. Consumer activation remains destination-owned and fail-closed until SV-011 exists and binds exact source identities.
