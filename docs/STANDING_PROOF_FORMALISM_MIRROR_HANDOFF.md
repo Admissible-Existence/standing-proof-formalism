@@ -152,3 +152,20 @@ session_consolidation: 1/1
 ## Archive Conditions
 
 The Standing Proof source lane is archive-safe. The broader session remains governed by `Admissible-Existence/.github/docs/CROSS_REPOSITORY_REMEDIATION_MIRROR_HANDOFF.md` until organization-level archive conditions are satisfied.
+
+
+## AID consumer integration — 2026-09-01
+
+`Admissible-Existence/AID` may use this repository to discover the evidence required to reconstruct current standing at a consequence boundary.
+
+AID must preserve the canonical distinctions:
+
+`review evidence != execution authority`
+
+`candidate record != standing proof`
+
+`prior validity != current standing`
+
+`ALLOW standing status != execution permission`
+
+AID does not issue standing, and an AI Entity's discovery, learning, capability realization, or self-description does not bypass consequence-time standing requirements.
